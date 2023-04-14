@@ -1,0 +1,66 @@
+<canvas width="600" height="400"></canvas>
+
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2*3.14);
+        pincel.fill();
+    }
+
+    function drawingFlower(x, y) {
+        // Center
+        desenhaCirculo(x, y, 15, 'red');
+        // Left
+        desenhaCirculo(x - 30, y, 15, 'red');
+        // Right
+        desenhaCirculo(x + 30, y, 15, 'red');
+        // Top
+        desenhaCirculo(300, y - 30, 15, 'red');
+        // Bottom
+        desenhaCirculo(300, y + 30, 15, 'red');
+    }
+
+    drawingFlower(300, 200);
+
+</script>
+
+<!-- // Resposta -->
+
+<!-- <canvas width="600" height="400"></canvas>
+
+<script>
+
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'lightgray';
+    pincel.fillRect(0, 0, 600, 400);
+
+    function desenhaCirculo(x, y, raio, cor) {
+
+        pincel.fillStyle = cor;
+        pincel.beginPath();
+        pincel.arc(x, y, raio, 0, 2 * Math.PI);
+        pincel.fill();
+    }
+
+    function desenhaFlor(x, y) {
+
+        desenhaCirculo(x, y+20, 10, 'blue');
+        desenhaCirculo(x, y, 10, 'red');
+        desenhaCirculo(x, y-20, 10, 'yellow');
+        desenhaCirculo(x-20, y, 10, 'orange');
+        desenhaCirculo(x+20, y, 10, 'black');
+    }
+
+    desenhaFlor(300, 200);
+
+</script> -->
