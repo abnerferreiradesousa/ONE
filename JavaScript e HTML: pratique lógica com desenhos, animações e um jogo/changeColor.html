@@ -1,0 +1,81 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var tela = document.querySelector('canvas');
+    var pincel = tela.getContext('2d');
+    pincel.fillStyle = 'grey';
+    pincel.fillRect(0, 0, 600, 400);
+
+    var color = 'blue';
+    var radius = 10;
+
+    function desenhaCirculo(evento) {
+        var x = evento.pageX - tela.offsetLeft;
+        var y = evento.pageY - tela.offsetTop;
+        if(evento.shiftKey && (radius + 10) <= 40) {
+            radius = radius + 10;
+        }
+        if(evento.altKey && (radius - 5) >= 10) {
+            radius = radius - 5;
+        }
+        console.log(color);
+        pincel.fillStyle = color;
+        pincel.beginPath();
+        pincel.arc(x, y, radius, 0, 2 * 3.14);
+        pincel.fill();
+        console.log(x + ',' + y);
+    }
+
+    tela.onclick = desenhaCirculo;
+
+    function mudaCor() {
+        if(color == 'blue') {color = 'red'};
+        if(color == 'red') {color = 'green'};
+        if(color == 'green') {color = 'blue'};
+        
+        return false;
+    }
+
+    tela.oncontextmenu = mudaCor;
+
+</script>
+
+
+
+
+<!-- Resolução -->
+
+<!-- <canvas width="600" height="400"></canvas>
+
+<script>
+
+  var tela = document.querySelector('canvas');
+  var pincel = tela.getContext('2d');
+  pincel.fillStyle = 'grey';
+  pincel.fillRect(0, 0, 600, 400);
+
+  var cores = ['blue', 'red', 'green']
+  var indiceCorAtual = 0; // começa com blue
+
+  function desenhaCirculo(evento) {
+    var x = evento.pageX - tela.offsetLeft;
+    var y = evento.pageY - tela.offsetTop;
+    pincel.fillStyle = cores[indiceCorAtual];
+    pincel.beginPath();
+    pincel.arc(x, y, 10, 0, 2 * 3.14);
+    pincel.fill();
+    console.log(x + ',' + y);
+  }
+
+  tela.onclick = desenhaCirculo;
+
+  function mudaCor() {
+    indiceCorAtual++;
+    if (indiceCorAtual >= cores.length) {
+      indiceCorAtual = 0; // volta para a primeira cor, azul
+    }
+    return false; // para não exibir o menu padrão do canvas
+  }
+  tela.oncontextmenu = mudaCor;
+
+</script> -->
