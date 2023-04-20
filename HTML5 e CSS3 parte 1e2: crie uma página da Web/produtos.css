@@ -1,0 +1,35 @@
+header {
+    background: #BBBBBB;
+    /* Espaçamento interno entre no nosso header. */
+    padding: 20px 0;
+}
+
+.caixa {
+    /* Para que a lista de navegação fique dentro da "caixa" é necessário adicinar a linha 
+    abaixo para que o estilo aplicado a tag nav entenda em quem ele deve ter como referência. */
+    position: relative;
+    /* Largura fixa - boa margem*/
+    width: 940px;
+    margin: 0 auto;
+}
+
+nav {
+    /* O nav agora é absoluto em relação ao elemento com a classe "caixa" e não mais à tela. */
+    position: absolute;
+    top: 110px;
+    right: 0;
+
+}
+
+nav li {
+    display: inline;
+    margin: 0 0 0 15px;
+}
+
+nav a {
+    text-transform: uppercase;
+    color: #000000;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
